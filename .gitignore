@@ -7,3 +7,5 @@
 /.vs
 /DbOperationsWithEFCoreApp/DbOperationsWithEFCoreApp/obj
 /DbOperationsWithEFCoreApp/DbOperationsWithEFCoreApp/DbOperationsWithEFCoreApp.csproj.user
+/DbOperationsWithEFCoreApp/DbOperationsWithEFCoreApp.Tests/obj
+/DbOperationsWithEFCoreApp/DbOperationsWithEFCoreApp.Tests/bin/Debug/net8.0

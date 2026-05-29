@@ -14,12 +14,22 @@ namespace DbOperationsWithEFCoreApp.Controllers
         {
             this.appDbContext = appDbContext;
         }
-        [HttpGet("")]
+        [HttpGet("GetAllCurrencies")]
         public IActionResult GetAllCurrencies()
         {
             //var result = appDbContext.Currencies.ToList();
             var result = (from Currencies in appDbContext.Currencies
                           select Currencies).ToList();
+
+            return Ok(result);
+        }
+        [HttpGet("GetCurrenciesById")]
+        public IActionResult GetCurrenciesById(int Id)
+        {
+            var result = appDbContext.Currencies.FirstOrDefault(x => x.Id == Id);
+
+            if (result == null)
+                return NotFound();
 
             return Ok(result);
         }
