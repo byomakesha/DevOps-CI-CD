@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/DbOperationsWithEFCoreApp/DbOperationsWithEFCoreApp/bin/Debug/net8.0
+/DbOperationsWithEFCoreApp/.vs
+/.vs
+/DbOperationsWithEFCoreApp/DbOperationsWithEFCoreApp/obj
+/DbOperationsWithEFCoreApp/DbOperationsWithEFCoreApp/DbOperationsWithEFCoreApp.csproj.user
