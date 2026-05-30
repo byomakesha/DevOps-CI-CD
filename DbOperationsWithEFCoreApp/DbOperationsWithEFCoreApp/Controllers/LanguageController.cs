@@ -26,5 +26,15 @@ namespace DbOperationsWithEFCoreApp.Controllers
 
             return Ok(languages);
         }
+        [HttpGet("GetLanguageById")]
+        public IActionResult GetLanguageById(int Id)
+        {
+            var result = appDbContext.Languages.FirstOrDefault(x => x.Id == Id);
+
+            if (result == null)
+                return NotFound();
+
+            return Ok(result);
+        }
     }
 }

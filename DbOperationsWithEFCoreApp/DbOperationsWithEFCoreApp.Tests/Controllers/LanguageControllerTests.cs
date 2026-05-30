@@ -10,34 +10,34 @@ using System.Threading.Tasks;
 
 namespace DbOperationsWithEFCoreApp.Tests.Controllers
 {
-    public class CurrencyControllerTests
+    public class LanguageControllerTests
     {
         [Fact]
-        public async Task GetAllCurrencies_ReturnsData()
+        public async Task GetAllLanguages_ReturnsData()
         {
             var context = InMemoryDbHelper.GetDbContext();
-            var controller = new CurrencyController(context);
+            var controller = new LanguageController(context);
 
-            var result = await controller.GetAllCurrencies();
+            var result = await controller.GetAllLanguage();
 
             var okResult = Assert.IsType<OkObjectResult>(result);
-            var data = Assert.IsAssignableFrom<IEnumerable<Currency>>(okResult.Value);
+            var data = Assert.IsAssignableFrom<IEnumerable<Language>>(okResult.Value);
 
             Assert.Equal(4, data.Count());
         }
 
         [Fact]
-        public void GetCurrenciesById_ReturnsSingleCurrency()
+        public void GetLanguageById_ReturnsSingleLanguage()
         {
             var context = InMemoryDbHelper.GetDbContext();
-            var controller = new CurrencyController(context);
+            var controller = new LanguageController(context);
 
-            var result = controller.GetCurrenciesById(1);
+            var result = controller.GetLanguageById(2);
 
             var okResult = Assert.IsType<OkObjectResult>(result);
-            var currency = Assert.IsType<Currency>(okResult.Value);
+            var language = Assert.IsType<Language>(okResult.Value);
 
-            Assert.Equal("INR", currency.Title);
+            Assert.Equal("Tamil", language.Title);
         }
     }
 }

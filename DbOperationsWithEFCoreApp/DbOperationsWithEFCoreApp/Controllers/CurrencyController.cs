@@ -1,6 +1,7 @@
 ﻿using DbOperationsWithEFCoreApp.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace DbOperationsWithEFCoreApp.Controllers
 {
@@ -15,11 +16,12 @@ namespace DbOperationsWithEFCoreApp.Controllers
             this.appDbContext = appDbContext;
         }
         [HttpGet("GetAllCurrencies")]
-        public IActionResult GetAllCurrencies()
+        public async Task<IActionResult> GetAllCurrencies()
         {
             //var result = appDbContext.Currencies.ToList();
-            var result = (from Currencies in appDbContext.Currencies
-                          select Currencies).ToList();
+            var result = await (from Currencies in appDbContext.Currencies
+                          where Currencies != null
+                          select Currencies).ToListAsync();
 
             return Ok(result);
         }
